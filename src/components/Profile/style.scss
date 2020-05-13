@@ -1,0 +1,34 @@
+@import '../../styles/colors.scss';
+@import '../../styles/mixins.scss';
+
+main {
+  max-width: 800px;
+  margin: 150px auto;
+  padding: 1.5rem 1rem 0 1rem;
+  & > div {
+    display: flex;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    flex-flow: column;
+    text-align: center;
+    div.image-container {
+      height: 200px;
+      width: 200px;
+      margin: -100px auto 0;
+      img {
+        object-fit: cover;
+        max-width: 100%;
+        height: 100%;
+        clip-path: circle(100px);
+      }
+    }
+    div.share-container {
+      margin-top: 2.5rem;
+      padding: 0 1rem;
+      div {
+        padding: 1.5rem 1rem 0 1rem;
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+}
