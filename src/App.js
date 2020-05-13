@@ -1,26 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Header, Profile } from './components';
 import data from './mock-data';
 
-function App() {
+export default () => {
+  const idx = Math.floor(Math.random() * data.length)
+  const profile = data[idx];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback="loading...">
+      <Header />
+      <Profile key = { profile.id } { ...profile }/>
+    </Suspense>
   );
 }
-
-export default App;
